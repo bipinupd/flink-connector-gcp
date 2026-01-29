@@ -18,9 +18,9 @@
 
 package com.google.flink.connector.gcp.bigtable.utils;
 
-import com.google.api.gax.batching.BatchingSettings;
 import org.apache.flink.FlinkVersion;
 
+import com.google.api.gax.batching.BatchingSettings;
 import com.google.api.gax.rpc.FixedHeaderProvider;
 import com.google.api.gax.rpc.HeaderProvider;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -38,7 +38,18 @@ public class CreateBigtableClients {
             FixedHeaderProvider.create(
                     "user-agent", "flink-bigtable-connector/" + FlinkVersion.current().toString());
 
-    /** Creates Data client used for writing. */
+    /**
+     * Creates Data client used for writing.
+     *
+     * @param project The GCP project ID.
+     * @param instance The Bigtable instance ID.
+     * @param flowControl Whether to enable bulk mutation flow control.
+     * @param appProfileId The App Profile ID to use.
+     * @param credentials The credentials to use.
+     * @param batchSize The element count threshold for batching.
+     * @return A configured {@link BigtableDataClient}.
+     * @throws IOException If the client creation fails.
+     */
     public static BigtableDataClient createDataClient(
             String project,
             String instance,
@@ -66,15 +77,18 @@ public class CreateBigtableClients {
 
         if (batchSize != null) {
             BatchingSettings batchingSettings =
-                    bigtableBuilder.stubSettings()
+                    bigtableBuilder
+                            .stubSettings()
                             .bulkMutateRowsSettings()
                             .getBatchingSettings()
                             .toBuilder()
                             .setElementCountThreshold(batchSize)
                             .build();
 
-            bigtableBuilder.stubSettings()
-                    .bulkMutateRowsSettings().setBatchingSettings(batchingSettings);
+            bigtableBuilder
+                    .stubSettings()
+                    .bulkMutateRowsSettings()
+                    .setBatchingSettings(batchingSettings);
         }
 
         return BigtableDataClient.create(bigtableBuilder.build());

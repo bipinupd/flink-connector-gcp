@@ -54,79 +54,17 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.api</groupId>
-      <artifactId>gax</artifactId>
-      <version>2.59.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>io.opencensus</groupId>
-          <artifactId>opencensus-api</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>com.google.flink.connector.gcp</groupId>
+      <artifactId>flink-connector-bigtable-common</artifactId>
+      <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.google.auto.value</groupId>
-      <artifactId>auto-value</artifactId>
-      <version>${google-auto-value.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.auto.value</groupId>
-      <artifactId>auto-value-annotations</artifactId>
-      <version>${google-auto-value.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.cloud</groupId>
-      <artifactId>google-cloud-core</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.api</groupId>
-          <artifactId>gax</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.google.http-client</groupId>
-          <artifactId>google-http-client</artifactId>
-        </exclusion>
-      </exclusions>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
-    <dependency>
-      <groupId>com.google.cloud</groupId>
-      <artifactId>google-cloud-bigtable</artifactId>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
+
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-bigtable-emulator</artifactId>
+      <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava-gwt</artifactId>
-      <version>32.1.2-jre</version>
-    </dependency>
-    <dependency>
-      <groupId>io.grpc</groupId>
-      <artifactId>grpc-auth</artifactId>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
-    <dependency>
-      <groupId>io.grpc</groupId>
-      <artifactId>grpc-netty</artifactId>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
-    <dependency>
-      <groupId>io.grpc</groupId>
-      <artifactId>grpc-netty-shaded</artifactId>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
-    <dependency>
-      <groupId>io.grpc</groupId>
-      <artifactId>grpc-okhttp</artifactId>
-      <!-- Version is pulled from google-cloud-bom (loaded via the libraries-bom) -->
-    </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>

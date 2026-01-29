@@ -12,7 +12,9 @@
     <artifactId>flink-connector-bigtable-parent</artifactId>
     <version>0.2.0</version>
     <modules>
+        <module>flink-connector-bigtable-common</module>
         <module>flink-connector-gcp-bigtable</module>
+        <module>flink-2.1-connector-bigtable</module>
         <module>flink-examples-gcp-bigtable</module>
     </modules>
 
@@ -174,8 +176,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.google.flink.connector.gcp.bigtable</groupId>
+                <groupId>com.google.flink.connector.gcp</groupId>
                 <artifactId>flink-connector-gcp-bigtable</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.flink.connector.gcp</groupId>
+                <artifactId>flink-connector-bigtable-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

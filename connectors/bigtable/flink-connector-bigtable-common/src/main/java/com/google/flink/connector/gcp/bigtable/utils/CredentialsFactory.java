@@ -52,16 +52,35 @@ public abstract class CredentialsFactory implements Serializable {
     @AutoValue.Builder
     public abstract static class Builder {
 
-        /** Sets the credentials using a file system location. */
+        /**
+         * Sets the credentials using a file system location.
+         *
+         * @param credentialsFile The path to the credentials file.
+         * @return The builder instance.
+         */
         public abstract Builder setCredentialsFile(String credentialsFile);
 
-        /** Sets the credentials using a credentials key, encoded in Base64. */
+        /**
+         * Sets the credentials using a credentials key, encoded in Base64.
+         *
+         * @param credentialsKey The base64 encoded credentials key.
+         * @return The builder instance.
+         */
         public abstract Builder setCredentialsKey(String credentialsKey);
 
-        /** Sets the credentials using a GCP access token. */
+        /**
+         * Sets the credentials using a GCP access token.
+         *
+         * @param credentialsToken The access token.
+         * @return The builder instance.
+         */
         public abstract Builder setAccessToken(String credentialsToken);
 
-        /** Builds a fully initialized {@code CredentialsFactory} instance. */
+        /**
+         * Builds a fully initialized {@code CredentialsFactory} instance.
+         *
+         * @return The created {@link CredentialsFactory}.
+         */
         public abstract CredentialsFactory build();
     }
 
@@ -71,6 +90,8 @@ public abstract class CredentialsFactory implements Serializable {
 
     /**
      * Returns the Google Credentials created given the provided configuration or an empty Optional.
+     *
+     * @return An optional containing the credentials if configured, or empty.
      */
     public Optional<GoogleCredentials> getCredentialsOr() {
         try {

@@ -99,7 +99,11 @@ public class BigtableFlushableWriter {
                                 new DescriptiveStatisticsHistogram(HISTOGRAM_WINDOW_SIZE));
     }
 
-    /** Adds RowMuationEntry to Batcher. */
+    /**
+     * Adds RowMuationEntry to Batcher.
+     *
+     * @param entry The entry to add to the batcher.
+     */
     public void collect(RowMutationEntry entry) throws InterruptedException {
         ApiFuture<Void> future = batcher.add(entry);
         batchFutures.add(future);

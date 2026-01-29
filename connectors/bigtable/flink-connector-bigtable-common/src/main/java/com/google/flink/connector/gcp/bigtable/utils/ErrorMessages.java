@@ -44,4 +44,7 @@ public class ErrorMessages {
     public static final String SCHEMA_NULL = "Row key field must be set";
     public static final String MULTIPLE_PRIMARY_KEYS_TEMPLATE =
             "There must be exactly one primary key, found %d.";
+    public static final String NULL_PROJECT = "Project ID must be set";
+    public static final String NULL_INSTANCE = "Instance ID must be set";
+    public static final String NULL_TABLE = "Table ID must be set";
 }
